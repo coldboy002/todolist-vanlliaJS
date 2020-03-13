@@ -1,11 +1,12 @@
 document.addEventListener("DOMContentLoaded", function() {
   let htmlList = document.getElementById("todo-list");
   let addBtn = document.getElementById("add-btn");
-
-  let todoList = ["have breakfast", "watch a film", "go to bed"];
+  // key localStorage
+  const storageKey = "TODOS";
+  //get localStorage with key is variable storageKey if null assign todo list is empty array ([]);
+  let todoList = JSON.parse(localStorage.getItem(storageKey)) || [];
   let context;
-  render();
-
+  // add todo
   addBtn.addEventListener("click", addItem);
 
   function addItem() {
@@ -15,11 +16,15 @@ document.addEventListener("DOMContentLoaded", function() {
       todoList.push(newItem);
     }
     render();
+    // set localStorage with key is variable storageKey
+    localStorage.setItem(storageKey, JSON.stringify(todoList));
     input.value = "";
   }
-
+  // render HTML
   function render() {
     context = todoList.map(item => `<li>${item}</li>`);
     htmlList.innerHTML = context.join("");
   }
+
+  render();
 });
