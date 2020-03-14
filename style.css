@@ -14,3 +14,7 @@ ul {
   max-width: 200px;
   height: 60vh;
 }
+
+button {
+  margin:0 8px;
+}

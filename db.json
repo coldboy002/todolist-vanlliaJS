@@ -1,10 +1,6 @@
 {
   "todos": [
     {
-      "content": "Go to bed",
-      "id": 1
-    },
-    {
       "content": "Watch TV",
       "id": 2
     },
@@ -13,7 +9,7 @@
       "id": 3
     },
     {
-      "content": "sadsad",
+      "content": "Go to bed",
       "id": 4
     }
   ]
