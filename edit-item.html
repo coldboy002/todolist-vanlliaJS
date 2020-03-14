@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script async src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <a href="/">Back</a>
+    <h1 class='heading'>Edit</h1>
+    <div class="container">
+        <input id='edit-item' type="text" name="" placeholder="New item">
+        <button id='edit-btn'>Edit</button>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let editBtn = document.getElementById("edit-btn");
+            let editInput = document.getElementById("edit-item");
+
+            const url = "http://localhost:3000/todos";
+            let hash = location.hash;
+            hash = hash.slice(1);
+            const urlParams = `${url}/${hash}`;
+            // add todo
+            axios.get(urlParams)
+                .then(function (res) {
+                    editInput.value = res.data.content;
+                });
+            editBtn.addEventListener("click", editItem);
+
+            function editItem(e) {
+                if (editInput.value) {
+                    axios.put(urlParams, {
+                        content: editInput.value
+                    }).then(function (res) {
+                        editInput.value = "";
+                        window.location.href = '/';
+                    });
+
+                }
+
+            }
+        });
+    </script>
+
+</body>
+
+</html>

@@ -12,9 +12,18 @@ document.addEventListener("DOMContentLoaded", function() {
       // handle error
       console.log(err);
     });
+  htmlList.addEventListener("click", function(e) {
+    if (e.target.tagName === "BUTTON") {
+      let hash = e.target.dataset.id;
+      console.log("click");
+      window.location.href = `/edit-item.html#${hash}`;
+    }
+  });
   // render HTML
   function render(items) {
-    context = items.map(item => `<li>${item.content}</li>`);
+    context = items.map(
+      item => `<li>${item.content}</li><button data-id=${item.id}>Edit</button>`
+    );
     htmlList.innerHTML = context.join("");
   }
 });

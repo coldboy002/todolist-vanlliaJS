@@ -29,11 +29,14 @@
             function addItem(e) {
                 let newItem = { content: input.value };
                 if (input.value) {
-                    axios.post(url, newItem).then(function (res) {
-                        console.log(res);
-                    });
-                    input.value = "";
+                    axios.post(url, newItem)
+                        .then(function (res) {
+                            input.value = "";
+                            window.location.href = '/';
+                        });
+
                 }
+
             }
         });
     </script>
