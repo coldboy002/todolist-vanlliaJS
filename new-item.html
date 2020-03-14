@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script async src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <a href="/" id='back'>Back</a>
+    <h1 class='heading'>TO DO LIST</h1>
+    <div class="container">
+        <input id='new-item' type="text" name="" placeholder="New item">
+        <button id='add-btn'>Add</button>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let addBtn = document.getElementById("add-btn");
+            let input = document.getElementById("new-item");
+
+            const url = "http://localhost:3000/todos";
+            // add todo
+            addBtn.addEventListener("click", addItem);
+
+            function addItem(e) {
+                let newItem = { content: input.value };
+                if (input.value) {
+                    axios.post(url, newItem).then(function (res) {
+                        console.log(res);
+                    });
+                    input.value = "";
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>
