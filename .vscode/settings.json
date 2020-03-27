@@ -1,0 +1,48 @@
+{
+    "gitSemanticCommit.types": [
+        {
+            "type": "✨feat",
+            "description": "A new feature"
+        },
+        {
+            "type": "🐛fix",
+            "description": "A bug fix"
+        },
+        {
+            "type": "📦chore",
+            "description": "Build process or auxiliary tool changes"
+        },
+        {
+            "type": "✅test",
+            "description": "Adding missing tests"
+        },
+        {
+            "type": "📝docs",
+            "description": "Documentation only changes"
+        },
+        {
+            "type": "🎨refactor",
+            "description": "A code change that neither fixes a bug or adds a feature"
+        },
+        {
+            "type": "💄style",
+            "description": "Markup, white-space, formatting, missing semi-colons..."
+        },
+        {
+            "type": "🎡ci",
+            "description": "CI related changes"
+        },
+        {
+            "type": "👌perf",
+            "description": "A code change that improves performance"
+        },
+        {
+            "type": "🏹revert",
+            "description": "Create a revert commit"
+        },
+        {
+            "type": "🔧config",
+            "description": "Modify the configuration file"
+        }
+    ]
+}
